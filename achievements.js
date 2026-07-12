@@ -62,7 +62,7 @@ window.animeData = {
       id: "classic_04",
       category: "classic_watch",
       title: "締結契約的魔法少女 (Madoka Magica)",
-      description: "觀看《魔法少女小圓》並體驗到第三話學姐「斷頭」的經典劇情與震撼反轉。",
+      description: "完整觀看《魔法少女小圓》，沉浸在這部顛覆傳統魔法少女認知的黑深殘神作中。",
       difficulty: "★★☆☆☆",
       tips: "愛的戰士虛淵玄的代表作，顛覆了傳統魔法少女的溫馨路線，開創黑深殘魔法少女先河。"
     },
@@ -367,7 +367,7 @@ window.animeData = {
     {
       id: "lifestyle_17",
       category: "otaku_lifestyle",
-      title: "二次元屏保 (Otaku Wallpaper)",
+      title: "二次元螢幕保護程式 (Otaku Wallpaper)",
       description: "將手機或電腦桌面背景設為動漫角色，且在公共場所亮出螢幕時毫不畏懼旁人的目光。",
       difficulty: "★☆☆☆☆",
       tips: "不畏世俗眼光，勇敢展現對角色的愛，這就是強大御宅族自信的展現！"
@@ -375,7 +375,7 @@ window.animeData = {
     {
       id: "lifestyle_18",
       category: "otaku_lifestyle",
-      title: "聲優廚養成 (Seiyuu Fan)",
+      title: "聲優愛好者養成 (Seiyuu Fan)",
       description: "在不看字幕聲優表的前提下，僅憑配音的聲線就能認出至少 5 位日本聲優（如花澤香菜、悠木碧、松岡禎丞等）。",
       difficulty: "★★☆☆☆",
       tips: "日本聲優都是怪物！熟悉聲優的聲線特色能讓你在追番時獲得額外樂趣。"

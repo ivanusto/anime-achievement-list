@@ -8,10 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const STORAGE_KEY = "otaku_achievement_choices_v1";
+  const SITE_URL = "https://ivanusto.github.io/anime-achievement-list/";
   let activeTab = "achievements";
   let activeCategory = "all";
   let activeStatusFilter = "all";
   let searchQuery = "";
+  // Custom achievements
+  let customAchievements = []; // [{id, title, desc, unlocked}]
 
   // --- 粒子特效引擎 (慶祝動畫) ---
   const canvas = document.getElementById("sparkleCanvas");
@@ -115,6 +118,145 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     syncProfileUI();
   }
+
+  // --- 暱稱登入 Modal (首次訪問) ---
+  function checkFirstVisit() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) {
+      // 首次訪問，顯示登入 modal
+      showNicknameModal();
+    }
+  }
+
+  function showNicknameModal() {
+    document.getElementById("nicknameModal").style.display = "flex";
+  }
+
+  function closeNicknameModal() {
+    document.getElementById("nicknameModal").style.display = "none";
+  }
+
+  window.confirmNickname = function() {
+    const val = document.getElementById("modalNicknameInput").value.trim();
+    if (!val) {
+      showToast("⚠️ 請輸入您的御宅暱稱！");
+      return;
+    }
+    userChoices.nickname = val;
+    // Also sync avatar if selected in modal
+    const selectedAvatar = document.querySelector("#modalAvatarGrid .avatar-btn.selected");
+    if (selectedAvatar) userChoices.avatar = selectedAvatar.innerText;
+    saveLocalData();
+    syncProfileUI();
+    closeNicknameModal();
+    showToast(`🎉 歡迎！${userChoices.nickname}，開始你的動漫成就挑戰吧！`, true);
+  };
+
+  // Wire modal avatar buttons
+  document.querySelectorAll("#modalAvatarGrid .avatar-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#modalAvatarGrid .avatar-btn").forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+    });
+  });
+
+  // --- 自訂成就 ---
+  function loadCustomAchievements() {
+    const raw = localStorage.getItem(STORAGE_KEY + "_custom");
+    if (raw) {
+      try { customAchievements = JSON.parse(raw); } catch(e) { customAchievements = []; }
+    }
+  }
+
+  function saveCustomAchievements() {
+    localStorage.setItem(STORAGE_KEY + "_custom", JSON.stringify(customAchievements));
+    renderCustomAchievements();
+    calculateProgress();
+  }
+
+  window.openCustomAchModal = function() {
+    document.getElementById("customAchModal").style.display = "flex";
+    document.getElementById("customAchName").value = "";
+    document.getElementById("customAchDesc").value = "";
+  };
+
+  window.closeCustomAchModal = function() {
+    document.getElementById("customAchModal").style.display = "none";
+  };
+
+  window.saveCustomAchievement = function() {
+    const name = document.getElementById("customAchName").value.trim();
+    const desc = document.getElementById("customAchDesc").value.trim();
+    if (!name) { showToast("⚠️ 請填寫成就名稱！"); return; }
+    if (customAchievements.length >= 10) {
+      showToast("⚠️ 最多只能新增 10 個自訂成就！");
+      return;
+    }
+    const newAch = {
+      id: "custom_" + Date.now(),
+      title: name,
+      desc: desc || "—",
+      unlocked: false
+    };
+    customAchievements.push(newAch);
+    saveCustomAchievements();
+    closeCustomAchModal();
+    showToast("✅ 自訂成就已新增！");
+  };
+
+  function renderCustomAchievements() {
+    const grid = document.getElementById("customAchGrid");
+    const empty = document.getElementById("customAchEmpty");
+    const countEl = document.getElementById("customAchCountDisplay");
+    if (!grid) return;
+    if (countEl) countEl.innerText = customAchievements.length;
+
+    grid.innerHTML = "";
+    if (customAchievements.length === 0) {
+      if (empty) empty.style.display = "block";
+      return;
+    }
+    if (empty) empty.style.display = "none";
+    customAchievements.forEach((ach, idx) => {
+      const card = document.createElement("div");
+      card.className = "glass-panel achievement-card" + (ach.unlocked ? " matched" : "");
+      card.innerHTML = `
+        ${ach.unlocked ? '<div class="match-badge unlocked">已解鎖 🔓</div>' : ''}
+        <div>
+          <h3 class="card-title">🌟 ${ach.title}</h3>
+          <p class="card-desc">${ach.desc}</p>
+        </div>
+        <div class="card-actions">
+          <div class="couple-controls">
+            <div class="action-select-wrapper">
+              <button class="state-btn ${ach.unlocked ? 'active-unlocked' : ''}" onclick="toggleCustomAch(${idx})">
+                <i class="bx bx-check-circle"></i> ${ach.unlocked ? '已解鎖' : '標記解鎖'}
+              </button>
+              <button class="state-btn" style="color: var(--accent-red, #ef4444); border-color: rgba(239,68,68,0.4)" onclick="deleteCustomAch(${idx})">
+                <i class="bx bx-trash"></i> 刪除
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  window.toggleCustomAch = function(idx) {
+    customAchievements[idx].unlocked = !customAchievements[idx].unlocked;
+    if (customAchievements[idx].unlocked) {
+      showToast(`🎉 自訂成就「${customAchievements[idx].title}」解鎖！`, true);
+    }
+    saveCustomAchievements();
+  };
+
+  window.deleteCustomAch = function(idx) {
+    if (!confirm(`確定刪除自訂成就「${customAchievements[idx].title}」？`)) return;
+    customAchievements.splice(idx, 1);
+    saveCustomAchievements();
+    showToast("🗑️ 自訂成就已刪除");
+  };
 
   function saveLocalData() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(userChoices));
@@ -445,10 +587,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const state = userChoices.pa[item.id] || "locked";
       if (state === "unlocked") unlockedCount++;
     });
+    // Count custom unlocked too
+    customAchievements.forEach(ca => { if (ca.unlocked) unlockedCount++; });
+    const totalWithCustom = total + customAchievements.length;
 
-    const percent = Math.round((unlockedCount / total) * 100);
+    const percent = Math.round((unlockedCount / totalWithCustom) * 100);
 
-    progressValA.innerText = `${percent}% (${unlockedCount}/${total})`;
+    progressValA.innerText = `${percent}% (${unlockedCount}/${totalWithCustom})`;
     progressBarA.style.width = `${percent}%`;
 
     // 更新稱號 Badge
@@ -646,7 +791,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function getAchievementTotals() {
-    const total = window.animeData.achievements.length;
+    const total = window.animeData.achievements.length + customAchievements.length;
     let unlocked = 0;
     let wishes = 0;
     window.animeData.achievements.forEach(item => {
@@ -654,6 +799,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (state === "unlocked") unlocked++;
       if (state === "want") wishes++;
     });
+    customAchievements.forEach(ca => { if (ca.unlocked) unlocked++; });
     return { total, unlocked, wishes };
   }
 
@@ -878,6 +1024,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.fillStyle = '#4b5563';
     ctx.fillText("100% 瀏覽器本地安全隱私保護 • 網頁參考自開發者成就清單", 80, 1150);
 
+    // 8. 網址
+    ctx.font = 'bold 13px sans-serif';
+    ctx.fillStyle = '#a855f7';
+    ctx.fillText(SITE_URL, 80, 1175);
+
     setTimeout(() => {
       previewImg.src = canvasElement.toDataURL("image/png");
       shareModalBackdrop.style.display = "flex";
@@ -908,8 +1059,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- 初始化加載 ---
   loadLocalData();
+  loadCustomAchievements();
   renderAchievements();
   renderCategoryFilters();
+  renderCustomAchievements();
   initDrawDropdown();
   calculateProgress();
+  checkFirstVisit();
 });

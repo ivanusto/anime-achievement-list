@@ -107,6 +107,18 @@
         <div class="achievements-grid" id="achievementsGrid">
           <!-- Card elements will render dynamically via app.js -->
         </div>
+
+        <!-- Custom Achievements Section -->
+        <div style="margin-top: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="margin: 0; font-size: 1.1rem; font-weight: 800; color: var(--primary-pink);">🌟 我的自訂動漫成就 (<span id="customAchCountDisplay">0</span> / 10)</h3>
+            <button class="action-btn" onclick="openCustomAchModal()" style="font-size: 0.8rem; padding: 0.5rem 0.9rem; border-color: var(--primary-violet); color: var(--primary-violet); background: rgba(168,85,247,0.08);">
+              <i class="bx bx-plus"></i> 新增自訂成就
+            </button>
+          </div>
+          <p id="customAchEmpty" style="display: block; color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 1.5rem; border: 1px dashed var(--border-light); border-radius: 14px;">還沒有自訂成就。把官方清單沒有、但對你別具意義的動漫指標記在這裡吧！（最多 10 個，會計入總進度）</p>
+          <div class="achievements-grid" id="customAchGrid"></div>
+        </div>
       </section>
 
       <!-- ================= TAB: SECRET MATCHER (WISHLIST) ================= -->
@@ -337,6 +349,65 @@
       </div>
 
       <button id="downloadShareCardBtn" class="action-btn" style="background: linear-gradient(135deg, var(--primary-pink), var(--primary-violet)); border: none; color: #fff; padding: 0.8rem; border-radius: 12px; font-weight: 700; cursor: pointer; text-align: center;"><i class="bx bx-download"></i> 下載 PNG 圖片</button>
+    </div>
+  </div>
+
+  <!-- MODAL: NICKNAME REGISTRATION (First Visit) -->
+  <div id="nicknameModal" class="modal-backdrop" style="display: none; z-index: 10001;">
+    <div class="glass-panel modal-content" style="max-width: 400px; gap: 1.2rem;">
+      <div style="text-align: center;">
+        <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎌</div>
+        <h2 style="margin: 0; font-size: 1.4rem; color: var(--primary-pink); font-weight: 900;">歡迎來到動漫成就世界！</h2>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.5rem 0 0 0;">請輸入您的御宅暱稱，這將顯示在您的分享卡上</p>
+      </div>
+      <div>
+        <label style="font-size: 0.82rem; color: var(--text-secondary); display: block; margin-bottom: 0.4rem;">御宅暱稱（最多 12 字）</label>
+        <input type="text" id="modalNicknameInput" class="custom-input" placeholder="輸入您的暱稱..."
+          maxlength="12"
+          style="width: 100%; box-sizing: border-box;"
+          onkeydown="if(event.key==='Enter') confirmNickname()">
+      </div>
+      <div>
+        <label style="font-size: 0.82rem; color: var(--text-secondary); display: block; margin-bottom: 0.6rem;">選擇代表頭像</label>
+        <div id="modalAvatarGrid" class="avatar-selector">
+          <button class="avatar-btn selected">🧙‍♀️</button>
+          <button class="avatar-btn">⚔️</button>
+          <button class="avatar-btn">🎤</button>
+          <button class="avatar-btn">🤖</button>
+          <button class="avatar-btn">🐱</button>
+          <button class="avatar-btn">🎒</button>
+          <button class="avatar-btn">🎮</button>
+          <button class="avatar-btn">🍜</button>
+          <button class="avatar-btn">🦊</button>
+          <button class="avatar-btn">👑</button>
+        </div>
+      </div>
+      <button class="action-btn" onclick="confirmNickname()" style="background: linear-gradient(135deg, var(--primary-pink), var(--primary-violet)); border: none; color: #fff; padding: 0.9rem; border-radius: 12px; font-weight: 800; font-size: 1rem; cursor: pointer;">
+        🚀 開始動漫成就挑戰！
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD CUSTOM ACHIEVEMENT -->
+  <div id="customAchModal" class="modal-backdrop" style="display: none; z-index: 10001;" onclick="if(event.target===this) closeCustomAchModal()">
+    <div class="glass-panel modal-content" style="max-width: 400px; gap: 1rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="margin: 0; font-size: 1.15rem; color: var(--primary-violet); font-weight: 900;">🌟 新增自訂成就</h3>
+        <button onclick="closeCustomAchModal()" style="background: none; border: none; color: var(--text-secondary); font-size: 1.25rem; cursor: pointer;">✕</button>
+      </div>
+      <div>
+        <label style="font-size: 0.82rem; color: var(--text-secondary); display: block; margin-bottom: 0.4rem;">成就名稱（必填，最多 30 字）</label>
+        <input type="text" id="customAchName" class="custom-input" placeholder="例：看完點門全世界漫畫" maxlength="30" style="width: 100%; box-sizing: border-box;">
+      </div>
+      <div>
+        <label style="font-size: 0.82rem; color: var(--text-secondary); display: block; margin-bottom: 0.4rem;">成就說明（選填，最多 60 字）</label>
+        <input type="text" id="customAchDesc" class="custom-input" placeholder="自訂說明..."
+          maxlength="60" style="width: 100%; box-sizing: border-box;">
+      </div>
+      <div style="display: flex; gap: 0.75rem;">
+        <button class="action-btn" onclick="closeCustomAchModal()" style="flex: 1; justify-content: center;">取消</button>
+        <button class="action-btn" onclick="saveCustomAchievement()" style="flex: 1; justify-content: center; background: linear-gradient(135deg, var(--primary-pink), var(--primary-violet)); border: none; color: #fff; font-weight: 700;">儲存成就</button>
+      </div>
     </div>
   </div>
 
