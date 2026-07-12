@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>OTAKU | 動漫領域解鎖成就清單</title>
+  <!-- SEO & Description -->
+  <meta name="description" content="專屬動漫迷的解鎖成就清單，記錄您的經典神作觀影歷程、日常宅度行為，以及各級別的動漫聖地巡禮足跡。一鍵生成專屬宅力分享卡！">
+  
+  <!-- Open Graph / Social Previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OTAKU | 動漫領域解鎖成就清單">
+  <meta property="og:description" content="100+項動漫成就打卡、五大領域宅力稱號、動漫抽卡與真心話問答，一鍵生成專屬動漫成就卡！資料100%儲存於本地端。">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=1200&auto=format&fit=crop&q=80">
+  
+  <!-- Boxicons CDN for modern iconography -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Canvas for Match Celebrations -->
+  <canvas id="sparkleCanvas" class="sparkle-canvas"></canvas>
+
+  <!-- Global Toast Notification System -->
+  <div id="toast" class="toast">
+    <i class="bx bx-info-circle"></i>
+    <span id="toastText">提示訊息</span>
+  </div>
+
+  <div class="container">
+    <!-- Branding Header -->
+    <header>
+      <div class="brand-title" id="brandHomeBtn" style="cursor: pointer;">OTAKU</div>
+      <div class="brand-subtitle">動漫領域解鎖成就清單<span>★</span></div>
+      <div class="project-switcher-container" style="margin-top: 1rem; display: flex; justify-content: center;">
+        <select class="custom-select" onchange="if(this.value) window.open(this.value, '_self')" style="width: auto; max-width: 250px; font-weight: 700; background: rgba(20, 16, 38, 0.8);">
+          <option value="" disabled selected>❖ 切換其他成就清單...</option>
+          <option value="https://ivanusto.github.io/life-achievement-list/">🌱 人生成就系統</option>
+          <option value="https://ivanusto.github.io/developer-achievement-list/">💻 開發者成就系統</option>
+          <option value="https://ivanusto.github.io/taiwan-travel-achievement-list/">🗺️ 台灣旅行成就系統</option>
+          <option value="https://ivanusto.github.io/japan-travel-achievement-list/">🗾 日本旅行成就系統</option>
+          <option value="https://ivanusto.github.io/travel-achievement-list/">✈️ 地球旅行成就系統</option>
+          <option value="https://ivanusto.github.io/couple-achievement-list/">💖 伴侶成就系統</option>
+          <option value="https://single-male.pages.dev/">🔞 男性性生活成就清單</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main>
+      
+      <!-- ================= TAB: ACHIEVEMENTS ================= -->
+      <section id="achievementsTab" class="tab-content active">
+        <!-- Dashboard/Progress Row -->
+        <div class="dashboard">
+          <!-- Unlock Progress Card -->
+          <div class="glass-panel">
+            <div class="stats-container">
+              <div class="stat-item">
+                <span class="stat-label"><i class="bx bx-check-circle" style="color: var(--accent-cyan)"></i> 個人解鎖進度</span>
+                <span class="stat-value" id="progressValA">0%</span>
+              </div>
+              <div class="stat-bar-outer">
+                <div id="progressBarA" class="stat-bar-inner bar-pink" style="width: 0%"></div>
+              </div>
+              <button id="openShareBtn" class="action-btn" style="margin-top: 1.2rem; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; border-color: var(--primary-pink); color: var(--primary-pink); background: rgba(255, 42, 95, 0.08); font-size: 0.88rem; padding: 0.65rem;"><i class="bx bx-share-alt"></i> 產生動漫成就分享卡</button>
+            </div>
+          </div>
+
+          <!-- Current Badges/Milestones Card -->
+          <div class="glass-panel badge-widget">
+            <div class="badge-icon-container" id="badgeIcon">🌱</div>
+            <div class="badge-info">
+              <p>當前宅力稱號</p>
+              <h3 id="badgeTitle">動漫新鮮人</h3>
+              <p id="badgeDesc">剛剛開啟感官大門，前方還有許多未知的愉悅等待你探索。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search Bar and Status Filters -->
+        <div class="search-filter-row">
+          <!-- Search input -->
+          <div class="search-input-wrapper">
+            <i class="bx bx-search"></i>
+            <input type="text" id="searchBar" class="search-bar" placeholder="搜尋成就名稱、描述或秘訣關鍵字...">
+          </div>
+          <!-- Status Filters -->
+          <div class="status-filters" style="margin-bottom: 0; align-items: center;">
+            <button class="status-btn active" data-filter="all">全部</button>
+            <button class="status-btn" data-filter="unlocked">已解鎖</button>
+            <button class="status-btn" data-filter="want">想挑戰</button>
+            <button class="status-btn" data-filter="locked">未解鎖</button>
+          </div>
+        </div>
+
+        <!-- Category Horizontal Filter Scroller -->
+        <div class="category-filter-wrapper" id="categoryFilterContainer">
+          <button class="filter-btn active" data-category="all">
+            <i class="bx bx-grid-alt"></i> 全部領域
+          </button>
+        </div>
+
+        <!-- Achievements Grid -->
+        <div class="achievements-grid" id="achievementsGrid">
+          <!-- Card elements will render dynamically via app.js -->
+        </div>
+      </section>
+
+      <!-- ================= TAB: SECRET MATCHER (WISHLIST) ================= -->
+      <section id="matcherTab" class="tab-content">
+        <div class="matcher-header">
+          <h2>🎯 動漫攻略目標 (Otaku Targets)</h2>
+          <p>這裡收集了您在挑戰清單中所有標記為「想挑戰」的項目。為您未來的追番生活、周邊充值或線下巡禮提供滿滿的攻略動力！</p>
+        </div>
+
+        <div class="matcher-info-cards" id="matcherIntro">
+          <div class="glass-panel info-card">
+            <div class="info-card-icon">🚀</div>
+            <h4>自我督促</h4>
+            <p>將平時想看卻一直被擱置在待看清單（補番名單）的作品整理在此，不再遺忘。</p>
+          </div>
+          <div class="glass-panel info-card">
+            <div class="info-card-icon">⛩️</div>
+            <h4>巡禮計畫</h4>
+            <p>收集想去的現地景點，為下一次的日本或線下同好之旅規劃完美行程。</p>
+          </div>
+        </div>
+
+        <h3 class="brand-title" style="font-size: 1.6rem; margin-top: 1rem; margin-bottom: 1.5rem; text-align: center; width: 100%;">
+          ✦ 我的攻略計畫 ✦
+        </h3>
+        <div class="achievements-grid" id="matchedAchievementsGrid">
+          <!-- Matched cards will render here dynamically -->
+        </div>
+      </section>
+
+      <!-- ================= TAB: CARD DRAW ================= -->
+      <section id="card-drawTab" class="tab-content">
+        <div class="card-draw-container">
+          <div class="matcher-header" style="margin-bottom: 1.5rem;">
+            <h2>🔮 命運卡牌 (Otaku Cards)</h2>
+            <p>今天不知道該看什麼動畫，或是想給自己來點不一樣的挑戰？選擇一個分類，抽出一張神祕指令卡。讓命運來指引你今天的宅活方向。</p>
+          </div>
+
+          <div class="draw-controls">
+            <select id="drawCategory" class="custom-select">
+              <option value="all">任意主題</option>
+            </select>
+            <button id="drawBtn" class="draw-btn">抽取卡牌</button>
+          </div>
+
+          <div class="sex-card-scene" id="sexCardScene">
+            <div class="sex-card-inner" id="sexCardInner">
+              <!-- FRONT OF CARD -->
+              <div class="sex-card-face sex-card-front">
+                <div class="card-pattern"></div>
+                <div class="card-logo">✨</div>
+                <div class="card-prompt">點擊揭開今日指令</div>
+                <div class="card-click-hint">或點選上方抽取新卡</div>
+              </div>
+              <!-- BACK OF CARD -->
+              <div class="sex-card-face sex-card-back" id="sexCardBackContent">
+                <div class="drawn-category" id="drawnCategory">經典神作與觀影</div>
+                <h3 class="drawn-title" id="drawnTitle">人類補完計畫</h3>
+                <div class="drawn-desc" id="drawnDesc">
+                  完整觀看《新世紀福音戰士》(EVA) TV版 + 舊劇場版 + 新劇場版四部曲，並理解（或假裝理解）什麼是人類補完。
+                </div>
+                <div class="drawn-tips" id="drawnTips">
+                  攻略秘訣：「真嗣，乘上初號機吧。」體驗日本動漫史上最具影響力的哲學神作。
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB: QA / SOUL RESONANCE ================= -->
+      <section id="qaTab" class="tab-content">
+        <div class="qa-container">
+          <div class="matcher-header" style="margin-bottom: 1.5rem;">
+            <h2>💬 靈魂共鳴真心話 (Otaku Q&A)</h2>
+            <p>在與同好深夜暢談、或自我反省時，翻開一道關於動漫、情感與信仰的深度拷問。誠實面對內心最真實的熱愛，勾起屬於你二次元回憶的靈魂共振。</p>
+          </div>
+
+          <div class="qa-card-scene" id="qaCardScene">
+            <div class="qa-card-inner" id="qaCardInner">
+              <!-- FRONT OF CARD -->
+              <div class="sex-card-face qa-card-front">
+                <div class="card-pattern"></div>
+                <div class="card-logo">💬</div>
+                <div class="card-prompt">翻開共鳴問題</div>
+                <div class="card-click-hint">誠實面對熱愛是宅魂的起點</div>
+              </div>
+              <!-- BACK OF CARD -->
+              <div class="sex-card-face qa-card-back">
+                <div class="qa-question-text" id="qaQuestionText">
+                  你的「入坑之作」是哪一部動漫？是什麼契機讓你在那一刻開啟了二次元的大門？
+                </div>
+                <button class="qa-btn" id="nextQaBtn">換一題</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB: SETTINGS ================= -->
+      <section id="settingsTab" class="tab-content">
+        <div class="settings-section">
+          <!-- Profile Settings -->
+          <div class="glass-panel settings-card">
+            <h3>👤 個人御宅資料設定</h3>
+            <p>設定您的暱稱與頭像，這些資訊將會同步合成在您的「個人宅力分享卡」中。</p>
+            <div class="profile-settings">
+              <div class="form-group">
+                <label for="nicknameInput">您的暱稱：</label>
+                <input type="text" id="nicknameInput" class="custom-input" placeholder="輸入您的御宅暱稱..." maxlength="12">
+              </div>
+              <div class="form-group">
+                <label>選擇代表頭像：</label>
+                <div class="avatar-selector">
+                  <button class="avatar-btn">🧙‍♀️</button>
+                  <button class="avatar-btn">⚔️</button>
+                  <button class="avatar-btn">🎤</button>
+                  <button class="avatar-btn">🤖</button>
+                  <button class="avatar-btn">🐱</button>
+                  <button class="avatar-btn">🎒</button>
+                  <button class="avatar-btn">🎮</button>
+                  <button class="avatar-btn">🍜</button>
+                  <button class="avatar-btn">🦊</button>
+                  <button class="avatar-btn">👑</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Local Security Note -->
+          <div class="glass-panel">
+            <h3>🔐 100% 本地隱私安全保護</h3>
+            <p>
+              本網頁完全為<b>瀏覽器端獨立運行</b>，我們不會將您的任何個人資料、暱稱、代表頭像或勾選狀態上傳至任何雲端伺服器。所有勾選狀態與設定皆安全存於您的瀏覽器本地儲存區 (Local Storage)。您可以放心記錄。
+            </p>
+          </div>
+
+          <!-- Import / Export -->
+          <div class="glass-panel settings-card">
+            <h3>💾 資料備份與還原</h3>
+            <p>
+              由於資料僅儲存於本地瀏覽器，如果您更換瀏覽器或手機，可以使用下方工具進行匯出與匯入：
+            </p>
+            <div class="backup-controls">
+              <label for="backupData" style="font-size: 0.8rem; color: var(--text-secondary);">資料金鑰（還原進度請貼上金鑰後點擊匯入）：</label>
+              <textarea id="backupData" class="backup-textarea" placeholder="在此處將顯示或貼上您的備份金鑰字串..."></textarea>
+              <div class="button-group">
+                <button id="exportBtn" class="action-btn"><i class="bx bx-export"></i> 產生備份金鑰</button>
+                <button id="importBtn" class="action-btn" style="border-color: var(--primary-violet); color: var(--primary-violet);"><i class="bx bx-import"></i> 匯入備份金鑰</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reset -->
+          <div class="glass-panel settings-card" style="border-color: rgba(239, 68, 68, 0.2)">
+            <h3>⚠️ 重置與清除</h3>
+            <p>
+              如果您想徹底清除本裝置上的所有動漫清單進度與資料，請點擊下方重置按鈕。此動作將無法復原，請謹慎操作。
+            </p>
+            <button id="resetBtn" class="action-btn danger-btn"><i class="bx bx-trash"></i> 清除所有本地資料</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="text-align: center; padding: 2rem 1.5rem 5.5rem 1.5rem; color: var(--text-muted); font-size: 0.82rem; border-top: 1px solid var(--border-light); margin-top: 3.5rem; display: flex; flex-direction: column; gap: 0.6rem; align-items: center;">
+      <div>本網頁參考自 <a href="https://ivanusto.github.io/developer-achievement-list/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-pink); text-decoration: none; font-weight: 500; text-shadow: 0 0 10px var(--primary-pink-glow);">開發者成就系統</a> 進行設計開發 💖</div>
+      <div class="footer-switcher" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 0.8rem; font-size: 0.78rem; margin-top: 0.2rem;">
+        <a href="https://ivanusto.github.io/life-achievement-list/" target="_blank" style="color: var(--text-secondary); text-decoration: none;">🌱 人生成就</a> | 
+        <a href="https://ivanusto.github.io/developer-achievement-list/" target="_blank" style="color: var(--text-secondary); text-decoration: none;">💻 開發者成就</a> | 
+        <a href="https://ivanusto.github.io/taiwan-travel-achievement-list/" target="_blank" style="color: var(--text-secondary); text-decoration: none;">🗺️ 台灣旅行成就</a> | 
+        <a href="https://ivanusto.github.io/japan-travel-achievement-list/" target="_blank" style="color: var(--text-secondary); text-decoration: none;">🗾 日本旅行成就</a> | 
+        <a href="https://ivanusto.github.io/travel-achievement-list/" target="_blank" style="color: var(--text-secondary); text-decoration: none;">✈️ 地球旅行成就</a> | 
+        <a href="https://ivanusto.github.io/couple-achievement-list/" target="_blank" style="color: var(--text-secondary); text-decoration: none;">💖 伴侶成就</a> | 
+        <a href="https://single-male.pages.dev/" target="_blank" style="color: var(--text-secondary); text-decoration: none;">🔞 男性性生活成就</a>
+      </div>
+      <div style="font-size: 0.76rem; color: var(--text-muted); opacity: 0.8; margin-top: 0.2rem;">Powered by Antigravity AI Code Assistant</div>
+    </footer>
+
+    <!-- Bottom Navigation Bar (Mobile & Floating Navigation) -->
+    <nav class="bottom-nav">
+      <div class="nav-item active" data-tab="achievements">
+        <i class="bx bx-list-check nav-icon"></i>
+        <span>清單挑戰</span>
+      </div>
+      <div class="nav-item" data-tab="matcher">
+        <i class="bx bx-target-lock nav-icon"></i>
+        <span>攻略目標</span>
+      </div>
+      <div class="nav-item" data-tab="card-draw">
+        <i class="bx bx-cards nav-icon"></i>
+        <span>命運抽卡</span>
+      </div>
+      <div class="nav-item" data-tab="qa">
+        <i class="bx bx-conversation nav-icon"></i>
+        <span>真心話問答</span>
+      </div>
+      <div class="nav-item" data-tab="settings">
+        <i class="bx bx-cog nav-icon"></i>
+        <span>設定</span>
+      </div>
+    </nav>
+  </div>
+
+  <!-- MODAL: SHARE IMAGE GENERATOR -->
+  <div id="shareModalBackdrop" class="modal-backdrop" onclick="if(event.target===this) this.style.display='none'">
+    <div class="glass-panel modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="font-size: 1.3rem; color: var(--primary-pink); margin: 0; font-weight: 800; text-shadow: 0 0 10px var(--primary-pink-glow);">📸 生成動漫成就分享卡</h3>
+        <button onclick="document.getElementById('shareModalBackdrop').style.display='none'" style="background: none; border: none; color: var(--text-secondary); font-size: 1.25rem; cursor: pointer; padding: 0.2rem;">✕</button>
+      </div>
+      <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">
+        您可以下載此圖卡分享到社群媒體，與同好秀出您的動漫熱愛與宅力等級！
+      </p>
+
+      <!-- Canvas (hidden) -->
+      <canvas id="sharingPreviewCanvas" width="800" height="1200" style="display: none;"></canvas>
+      <!-- Preview Image -->
+      <img id="sharingPreviewImg" alt="Sharing Preview Card" style="width: 100%; max-height: 380px; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-light); background: #07050f;">
+
+      <!-- Social Share Buttons -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+        <button id="shareThreadsBtn" style="background: #101010; color: #fff; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 0.6rem; font-size: 0.78rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 0.2rem; font-family: var(--font-body);"><span style="font-size: 1.1rem;">🧵</span> Threads</button>
+        <button id="shareFacebookBtn" style="background: #1877f2; color: #fff; border: none; border-radius: 10px; padding: 0.6rem; font-size: 0.78rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 0.2rem; font-family: var(--font-body);"><span style="font-size: 1.1rem;">👤</span> Facebook</button>
+        <button id="shareTwitterBtn" style="background: #000000; color: #fff; border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 0.6rem; font-size: 0.78rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 0.2rem; font-family: var(--font-body);"><span style="font-size: 1.1rem;">🐦</span> X / Twitter</button>
+      </div>
+
+      <button id="downloadShareCardBtn" class="action-btn" style="background: linear-gradient(135deg, var(--primary-pink), var(--primary-violet)); border: none; color: #fff; padding: 0.8rem; border-radius: 12px; font-weight: 700; cursor: pointer; text-align: center;"><i class="bx bx-download"></i> 下載 PNG 圖片</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="achievements.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
