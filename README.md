@@ -2,7 +2,7 @@
 
 一個結合 **動漫成就系統**、**御宅霓虹暗色風格** 與 **本機隱私保護** 的個人二次元宅力足跡打卡與分享圖卡生成網頁。專為動漫愛好者、補番狂熱者與聖地巡禮者量身打造！
 
-🔗 **線上網址**: [https://ivanusto.github.io/anime-achievement-list/](https://ivanusto.github.io/anime-achievement-list/) *(或部署於您自訂的 Github Pages 空間)*
+🔗 **線上網址**: [https://ivanusto.github.io/anime-achievement-list/](https://ivanusto.github.io/anime-achievement-list/) 
 
 本系統完全部署於雲端/瀏覽器端，玩家無需安裝任何程式或下載檔案，即可直接在瀏覽器中完成所有的打卡記錄，解鎖您的二次元生涯成就。
 
@@ -36,7 +36,7 @@
 * 🗾 **[日本旅行成就系統](https://ivanusto.github.io/japan-travel-achievement-list/)**
 * ✈️ **[地球旅行成就系統](https://ivanusto.github.io/travel-achievement-list/)**
 * 💖 **[伴侶成就系統](https://ivanusto.github.io/couple-achievement-list/)**
-* 🔞 **[男性性生活成就清單](https://single-male.pages.dev/)**
+* 🔞 **[伴侶親密成就清單](https://aura-intimacy-list.pages.dev/)**
 
 ---
 
@@ -45,7 +45,7 @@
 * **前端核心**: HTML5 / Vanilla CSS / Vanilla JavaScript (ES6)
 * **圖卡繪製**: HTML5 Canvas API (動態高解析 Retina 縮放支援)
 * **動畫與 3D 翻牌**: CSS 3D Transforms / `@keyframes`
-* **二維碼生成**: QRCode.js
+* **QRcode 二維碼產生**: QRCode.js
 * **資料庫結構**: 純靜態陣列 (achievements.js)
 
 ---
