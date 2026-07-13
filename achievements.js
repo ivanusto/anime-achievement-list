@@ -234,6 +234,118 @@ window.animeData = {
       difficulty: "★☆☆☆☆",
       tips: "二次元搖滾新神作，滿滿的草根樂團梗、神級 Live 音樂以及極度放飛自我的搞笑作畫。"
     },
+    {
+      id: "classic_26",
+      category: "classic_watch",
+      title: "橙路/古靈精怪 (Orange Road)",
+      description: "完整觀看經典戀愛神作《橙路》(Kimagure Orange Road)，在鮎川圓、檜山光與春日恭介的超能力三角戀中體驗青春的酸甜。",
+      difficulty: "★★★☆☆",
+      tips: "「鮎川圓是無數老二次元的初戀女神。」感受膠片時代極具都市感與 City Pop 流行樂品味的戀愛鼻祖作品。"
+    },
+    {
+      id: "classic_27",
+      category: "classic_watch",
+      title: "鮮血的結末 (Nice Boat)",
+      description: "完整觀看完經典（胃痛）黑化神作《School Days》，理解「誠哥」、「誠死忙」與「Nice Boat (好船)」的真正含意。",
+      difficulty: "★★☆☆☆",
+      tips: "著名的病嬌代表作。因為最後一集的血腥畫面被電視台禁播改播風景片，而誕生了「Nice Boat」的網路傳奇梗。"
+    },
+    {
+      id: "classic_28",
+      category: "classic_watch",
+      title: "你的故事並非虛構 (DQ: Your Story)",
+      description: "完整觀看完動畫電影《勇者鬥惡龍 你的故事》，理解其顛覆原作、撼動無數玩家心靈的催淚 Meta 結局。",
+      difficulty: "★★☆☆☆",
+      tips: "結尾的驚天逆轉雖然充滿爭議，但也道出了無數遊戲玩家將虛擬世界視為第二人生的感人告白——「你就是勇者，這段故事是真實的。」"
+    },
+    {
+      id: "classic_29",
+      category: "classic_watch",
+      title: "無限大的夢想 (Butter-Fly)",
+      description: "完整觀看完《數碼寶貝大冒險》(Digimon Adventure) 1999版，並能在前奏響起時，跟著哼唱和田光司的《Butter-Fly》。",
+      difficulty: "★★☆☆☆",
+      tips: "每個人的童年都有過一隻亞古獸或巴達獸。無限大的夢想，在帽子飛起的那一刻化為永恆的感動與眼淚。"
+    },
+    {
+      id: "classic_30",
+      category: "classic_watch",
+      title: "黃昏的魔導士 (Dragon Slave)",
+      description: "觀看完經典奇幻冒險作品《秀逗魔導士》(Slayers)，並能完整背誦出主角莉娜·因巴斯「龍破斬 (Dragon Slave)」的經典吟唱咒文。",
+      difficulty: "★★★☆☆",
+      tips: "「比黃昏還要黑暗的東西，比血液還要鮮紅的東西...」莉娜·因巴斯是90年代奇幻輕改作品的絕對巔峰。"
+    },
+    {
+      id: "classic_31",
+      category: "classic_watch",
+      title: "代表月亮懲罰你 (Sailor Moon)",
+      description: "觀看過《美少女戰士》系列動畫，並能流暢做出且喊出經典名台詞「我要代替月亮懲罰你！」。",
+      difficulty: "★☆☆☆☆",
+      tips: "武內直子大師的傳奇巨作，開創戰鬥系魔法少女戰隊先河，在時尚設計與美學上至今仍是經典指標。"
+    },
+    {
+      id: "classic_32",
+      category: "classic_watch",
+      title: "大人帝國的鄉愁 (Adult Empire)",
+      description: "完整觀看完《蠟筆小新：風起雲湧 猛烈！大人帝國的反擊》或《風起雲湧 壯烈！戰國大合戰》，並在廣志的回憶（廣志的腳臭人生）片段中流下感動的眼淚。",
+      difficulty: "★★☆☆☆",
+      tips: "被公認為動畫電影史上最偉大的催淚神作之一，深邃的昭和鄉愁與對未來的擁抱，超越年齡的感動巨作。"
+    },
+    {
+      id: "classic_33",
+      category: "classic_watch",
+      title: "相聚一刻的煙火 (Maison Ikkoku)",
+      description: "觀看過高橋留美子大師的經典寫實戀愛神作《相聚一刻》，體會五代裕作與音無響子在人間煙火中的溫暖愛戀。",
+      difficulty: "★★★☆☆",
+      tips: "戀愛動漫史上的里程碑，高橋留美子對平凡人物情感的細膩刻畫，使其成為永恆不朽的成人童話。"
+    },
+    {
+      id: "classic_34",
+      category: "classic_watch",
+      title: "封印解除的櫻之卡 (Release the Seal)",
+      description: "完整觀看完《庫洛魔法使》（木之本櫻篇 + 小櫻牌篇），並能模仿喊出「隱藏著黑暗力量的鑰匙啊...」。",
+      difficulty: "★★☆☆☆",
+      tips: "CLAMP 的不朽之作，小櫻更是萌王始祖，庫洛牌的設計與小櫻每集的服裝都精美無比，堪稱童年與少女心巔峰。"
+    },
+    {
+      id: "classic_35",
+      category: "classic_watch",
+      title: "邪王炎殺黑龍波 (Darkness Flame)",
+      description: "觀看過《幽遊白書》的暗黑武術大會篇章，並曾模仿過飛影的右手繃帶封印。",
+      difficulty: "★★☆☆☆",
+      tips: "富堅義博的成名作，中二病與招式名稱的始祖之一，「邪王炎殺黑龍波」至今依然是經典梗。"
+    },
+    {
+      id: "classic_36",
+      category: "classic_watch",
+      title: "唯一的真相 (The Only Truth)",
+      description: "觀看過至少 5 部《名偵探柯南》的劇場版電影（如《貝克街的亡靈》、《迷宮的十字路》、《萬聖節的新娘》等）。",
+      difficulty: "★☆☆☆☆",
+      tips: "「真相永遠只有一個！」從經典的古典推理到後期的動作大片，柯南劇場版是每年暑期動漫迷的固定嘉年華。"
+    },
+    {
+      id: "classic_37",
+      category: "classic_watch",
+      title: "蟲之光流 (Mushi-Shi)",
+      description: "觀看完《蟲師》TV版兩季或劇場版，沉浸在銀古與神祕生命體「蟲」所交織的縹緲寂靜與治癒氛圍中。",
+      difficulty: "★★★☆☆",
+      tips: "豆瓣與 MAL 評分極高的治癒系神作，充滿東方禪意與對生命、自然和人性的深邃思考。"
+    },
+    {
+      id: "classic_38",
+      category: "classic_watch",
+      title: "麻辣教師魂 (Great Teacher Onizuka)",
+      description: "觀看完《麻辣教師GTO》動畫版，看鬼塚英吉用最不合常理卻最直擊人心的方式拯救一個個叛逆學生的青春。",
+      difficulty: "★★☆☆☆",
+      tips: "90年代的校園熱血經典，笑中帶淚，主題曲《Driver's High》更是令人心潮澎湃的搖滾神曲。"
+    },
+    {
+      id: "classic_39",
+      category: "classic_watch",
+      title: "龜派氣功波 (Kamehameha)",
+      description: "觀看過《七龍珠》或《七龍珠Z》系列動畫，並曾模仿雙手聚氣大喊「龜派氣功波！」(Kamehameha) 或夢想集齊七顆龍珠召喚神龍。",
+      difficulty: "★★☆☆☆",
+      tips: "鳥山明大師的殿堂級代表作，全球影響力最大的日本動漫 IP，熱血戰鬥與收集冒險的終極定義者。"
+    },
 
     // 2. 宅活日常與信仰充值
     {
