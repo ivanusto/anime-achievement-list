@@ -965,10 +965,10 @@ window.animeData = {
     {
       id: "hardcore_17",
       category: "hardcore_challenge",
-      title: "二次元信仰文身 (Otaku Tattoo)",
-      description: "將心儀動漫角色的家徽、標誌、經典台詞或肖像以刺青/紋身形式（或精緻長效紋身貼紙）印刻在自己身體上。",
+      title: "原畫與賽璐珞收藏家 (Genga & Cel Collector)",
+      description: "收藏過動漫作品的實際繪製手稿原畫（Genga）或復古動畫賽璐珞片（Cel Art），擁有實體世界中獨一無二的動漫歷史碎片。",
       difficulty: "★★★★☆",
-      tips: "把信仰刻進血肉裡！將《鋼之鍊金術師》的獻祭印記或《妖精的尾巴》公會紋章帶在身上。"
+      tips: "賽璐珞片與原畫手稿都是動畫製作過程中的珍貴產物，隨著數位動畫普及，這些承載匠人精神的實物已成為極具價值的夢幻收藏。"
     },
     {
       id: "hardcore_18",
