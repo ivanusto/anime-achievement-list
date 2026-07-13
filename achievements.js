@@ -38,7 +38,7 @@ window.animeData = {
       id: "classic_01",
       category: "classic_watch",
       title: "萬事起頭難 (Gateway Anime)",
-      description: "完整觀看第一部入坑的日本動漫作品（如《火影忍者》、《航海王》、《鋼之鍊金術師》、《哆啦A夢》等）。",
+      description: "完整觀看第一部入坑的日本動漫作品（如《火影忍者》、《航海王》、《鋼之鍊金術師》等，或同性質之經典入坑作品）。",
       difficulty: "★☆☆☆☆",
       tips: "恭喜你！點開這個成就，代表你正式打開了連結二次元世界的大門。"
     },
@@ -94,7 +94,7 @@ window.animeData = {
       id: "classic_08",
       category: "classic_watch",
       title: "宮崎駿的奇幻旅程 (Studio Ghibli)",
-      description: "至少觀看完 5 部吉卜力工作室的作品（如《神隱少女》、《龍貓》、《天空之城》、《霍爾的移動城堡》等）。",
+      description: "至少觀看完 5 部吉卜力工作室的作品（如《神隱少女》、《龍貓》、《天空之城》等，或吉卜力其他同性質作品）。",
       difficulty: "★☆☆☆☆",
       tips: "吉卜力的動畫陪伴無數人成長，是宮崎駿大師留給世界的奇幻瑰寶。"
     },
@@ -110,7 +110,7 @@ window.animeData = {
       id: "classic_10",
       category: "classic_watch",
       title: "京阿尼的日常感動 (Kyoto Animation)",
-      description: "至少觀看完 3 部京都動畫（Kyoto Animation）出品的作品（如《冰菓》、《紫羅蘭永恆花園》、《K-ON!》、《吹響吧！上低音號》）。",
+      description: "至少觀看完 3 部京都動畫（Kyoto Animation）出品的作品（如《冰菓》、《紫羅蘭永恆花園》等，或京都動畫其他同性質作品）。",
       difficulty: "★★☆☆☆",
       tips: "京阿尼以精緻無比的作畫、細膩的演出以及對角色的愛而聞名於世。"
     },
@@ -118,7 +118,7 @@ window.animeData = {
       id: "classic_11",
       category: "classic_watch",
       title: "長篇征服者 (Long-running Shonen)",
-      description: "完整觀看《火影忍者》或《航海王》或《死神》其中一部超過 200 集以上的長篇動畫。",
+      description: "完整觀看《火影忍者》、《航海王》或《死神》等，或其他超過 200 集以上的同性質長篇動畫。",
       difficulty: "★★★☆☆",
       tips: "長篇民工番需要極大的熱情與時間，陪伴無數人走過童年與青春。"
     },
@@ -126,7 +126,7 @@ window.animeData = {
       id: "classic_12",
       category: "classic_watch",
       title: "轉生異世界先驅 (Isekai Pioneer)",
-      description: "觀看《無職轉生～到了異世界就拿出真本事～》或《Re:從零開始的異世界生活》，體驗異世界轉生魅力。",
+      description: "觀看《無職轉生》、《Re:從零開始》等，或其他同性質之異世界轉生作品，體驗異世界轉生魅力。",
       difficulty: "★★☆☆☆",
       tips: "現代異世界輕小說改編的霸權作品，製作水準與劇情張力都極高。"
     },
@@ -134,7 +134,7 @@ window.animeData = {
       id: "classic_13",
       category: "classic_watch",
       title: "現代霸權見證者 (Modern Masterpiece)",
-      description: "觀看完《鬼滅之刃》、《咒術迴戰》、《葬送的芙莉蓮》、《我推的孩子》中至少三部。",
+      description: "觀看完《鬼滅之刃》、《咒術迴戰》、《葬送的芙莉蓮》、《我推的孩子》等，或同性質之近年現象級霸權番中至少三部。",
       difficulty: "★☆☆☆☆",
       tips: "近年來引發現象級社會效應的超級霸權番，走在動漫討論的最前線。"
     },
@@ -142,7 +142,7 @@ window.animeData = {
       id: "classic_14",
       category: "classic_watch",
       title: "科幻神作追尋者 (Sci-fi Classic)",
-      description: "觀看《攻殼機動隊 (Ghost in the Shell)》電影版或《星際牛仔 (Cowboy Bebop)》TV版。",
+      description: "觀看《攻殼機動隊》電影版或《星際牛仔》TV版，或其他同性質之經典科幻/太空歌劇作品。",
       difficulty: "★★★☆☆",
       tips: "90年代的硬核科幻經典，深深啟發了後來的《駭客任務》等好萊塢電影。"
     },
@@ -150,7 +150,7 @@ window.animeData = {
       id: "classic_15",
       category: "classic_watch",
       title: "運動熱血之魂 (Sports Anime)",
-      description: "觀看完《灌籃高手》(Slam Dunk) 或《排球少年!!》(Haikyu!!)，點燃青春與運動的熱血。",
+      description: "觀看完《灌籃高手》、《排球少年!!》等，或其他同性質之運動競技類動畫，點燃青春與運動的熱血。",
       difficulty: "★☆☆☆☆",
       tips: "「教練，我想打籃球...」揮灑汗水與青春的經典運動作品，帶給無數人勇氣。"
     },
@@ -166,7 +166,7 @@ window.animeData = {
       id: "classic_17",
       category: "classic_watch",
       title: "泡麵番達人 (Short Anime)",
-      description: "觀看至少 3 部單集長度小於 10 分鐘的泡麵番（如《齊木楠雄的災難》、《關於我不知道我老公在說什麼的事》）。",
+      description: "觀看至少 3 部單集長度小於 10 分鐘的泡麵番（如《齊木楠雄的災難》、《關於我老公在說什麼的事》等，或同性質之短篇泡麵番）。",
       difficulty: "★☆☆☆☆",
       tips: "泡麵番節奏輕快、吐槽精妙，是放鬆心情與打發短暫時間的良伴。"
     },
@@ -174,7 +174,7 @@ window.animeData = {
       id: "classic_18",
       category: "classic_watch",
       title: "時代的眼淚 (Retro Classic)",
-      description: "觀看一部 2000 年以前製作的經典老番（如《幽遊白書》、《美少女戰士》、《七龍珠》、《灌籃高手》）。",
+      description: "觀看一部 2000 年以前製作的經典老番（如《幽遊白書》、《美少女戰士》、《七龍珠》等，或同性質之 2000 年以前經典老番）。",
       difficulty: "★★☆☆☆",
       tips: "感受手繪膠片時代獨特的作畫張力與復古浪漫，經典永不過時。"
     },
@@ -182,7 +182,7 @@ window.animeData = {
       id: "classic_19",
       category: "classic_watch",
       title: "胃痛神作洗禮 (Emotional Trauma)",
-      description: "完整觀看《未聞花名》或《四月是你的謊言》或《白色相簿2》，感受極致的揪心與胃痛。",
+      description: "完整觀看《未聞花名》、《四月是你的謊言》或《白色相簿2》等，或其他同性質之催淚胃痛神作，感受極致的揪心與胃痛。",
       difficulty: "★★☆☆☆",
       tips: "「那朵花」的面碼、「四月」的謊言，準備好面紙，感受情感的強烈衝擊。"
     },
@@ -190,7 +190,7 @@ window.animeData = {
       id: "classic_20",
       category: "classic_watch",
       title: "智商壓制對決 (Mind Games)",
-      description: "觀看《死亡筆記本》或《遊戲人生 (No Game No Life)》，感受高智商博弈與極致反轉的快感。",
+      description: "觀看《死亡筆記本》或《遊戲人生》等，或其他同性質之高智商博弈/心理戰作品，感受高智商博弈與極致反轉的快感。",
       difficulty: "★☆☆☆☆",
       tips: "「我將成為新世界的神。」看著兩大天才之間的心理戰，大呼過癮。"
     },
@@ -206,7 +206,7 @@ window.animeData = {
       id: "classic_22",
       category: "classic_watch",
       title: "機甲之魂 (Mecha Fan)",
-      description: "觀看過《機動戰士鋼彈》系列中至少 2 個不同宇宙的作品（如 U.C. 宇宙與 C.E. 宇宙/AD 宇宙）。",
+      description: "觀看過《機動戰士鋼彈》系列中至少 2 個不同宇宙的作品（如 U.C. 宇宙與 C.E. 宇宙/AD 宇宙等，或其他同性質之機甲/鋼彈系列宇宙）。",
       difficulty: "★★☆☆☆",
       tips: "從《初代鋼彈》到《Seed》、《OO》甚至《水星的魔女》，男人的鋼彈浪漫！"
     },
@@ -254,7 +254,7 @@ window.animeData = {
       id: "classic_28",
       category: "classic_watch",
       title: "你的故事並非虛構 (DQ: Your Story)",
-      description: "完整觀看完動畫電影《勇者鬥惡龍 你的故事》，理解其顛覆原作、撼動無數玩家心靈的催淚 Meta 結局。",
+      description: "完整觀看完動畫電影《勇者鬥惡龍 你的故事》，或同性質之遊戲改編動畫電影，理解其顛覆原作、撼動無數玩家心靈的催淚 Meta 結局。",
       difficulty: "★★☆☆☆",
       tips: "結尾的驚天逆轉雖然充滿爭議，但也道出了無數遊戲玩家將虛擬世界視為第二人生的感人告白——「你就是勇者，這段故事是真實的。」"
     },
@@ -318,7 +318,7 @@ window.animeData = {
       id: "classic_36",
       category: "classic_watch",
       title: "唯一的真相 (The Only Truth)",
-      description: "觀看過至少 5 部《名偵探柯南》的劇場版電影（如《貝克街的亡靈》、《迷宮的十字路》、《萬聖節的新娘》等）。",
+      description: "觀看過至少 5 部《名偵探柯南》的劇場版電影（如《貝克街的亡靈》、《迷宮的十字路》等，或其他同性質之柯南劇場版電影）。",
       difficulty: "★☆☆☆☆",
       tips: "「真相永遠只有一個！」從經典的古典推理到後期的動作大片，柯南劇場版是每年暑期動漫迷的固定嘉年華。"
     },
@@ -376,7 +376,7 @@ window.animeData = {
       id: "lifestyle_04",
       category: "otaku_lifestyle",
       title: "輕小說開卷有益 (Light Novel Reader)",
-      description: "購買或閱讀過至少一套實體或電子版的日本輕小說（如《刀劍神域》、《無職轉生》）。",
+      description: "購買或閱讀過至少一套實體或電子版的日本輕小說（如《刀劍神域》、《無職轉生》等，或同性質之日系輕小說）。",
       difficulty: "★★☆☆☆",
       tips: "輕小說擁有比動畫更豐富的心理描寫與世界觀設定，是深度御宅的必經之路。"
     },
@@ -464,7 +464,7 @@ window.animeData = {
       id: "lifestyle_15",
       category: "otaku_lifestyle",
       title: "宅宅健康操 (Otaku Fitness)",
-      description: "聽著動漫燃歌（如《紅蓮之弓矢》、《殘酷天使的行動綱領》）在健身房運動或在家進行有氧訓練。",
+      description: "聽著動漫燃歌（如《紅蓮之弓矢》、《殘酷天使的行動綱領》等，或同性質之熱血動漫歌曲）在健身房運動或在家進行有氧訓練。",
       difficulty: "★☆☆☆☆",
       tips: "動漫歌自帶熱血 Buff，能讓你的運動心率與熱量燃燒效率大幅提升！"
     },
@@ -472,7 +472,7 @@ window.animeData = {
       id: "lifestyle_16",
       category: "otaku_lifestyle",
       title: "語錄脫口而出 (Catchphrase)",
-      description: "在日常生活對話中不自覺地說出動漫梗（例如：「真受不了」、「這就是我的忍道」、「領域展開」）。",
+      description: "在日常生活對話中不自覺地說出動漫梗（例如：「這就是我的忍道」、「領域展開」等，或同性質之經典動漫名台詞）。",
       difficulty: "★☆☆☆☆",
       tips: "這說明動漫文化已經深深烙印在你的潛意識中，成為你日常社交的一部分。"
     },
@@ -488,7 +488,7 @@ window.animeData = {
       id: "lifestyle_18",
       category: "otaku_lifestyle",
       title: "聲優愛好者養成 (Seiyuu Fan)",
-      description: "在不看字幕聲優表的前提下，僅憑配音的聲線就能認出至少 5 位日本聲優（如花澤香菜、悠木碧、松岡禎丞等）。",
+      description: "在不看字幕聲優表的前提下，僅憑配音的聲線就能認出至少 5 位日本聲優（如花澤香菜、悠木碧、松岡禎丞等，或其他同性質之日本著名聲優）。",
       difficulty: "★★☆☆☆",
       tips: "日本聲優都是怪物！熟悉聲優的聲線特色能讓你在追番時獲得額外樂趣。"
     },
@@ -512,7 +512,7 @@ window.animeData = {
       id: "lifestyle_21",
       category: "otaku_lifestyle",
       title: "桌遊卡牌戰士 (Card Gamer)",
-      description: "玩過至少一種動漫改編的集換式卡牌遊戲（如《寶可夢卡牌 PTCG》、《遊戲王卡》、或《WS (Weiß Schwarz)》）。",
+      description: "玩過至少一種動漫改編的集換式卡牌遊戲（如《寶可夢卡牌》、《遊戲王卡》等，或其他同性質之動漫改編卡牌遊戲）。",
       difficulty: "★★☆☆☆",
       tips: "收集稀有卡牌，研究牌組搭配，與同好進行策略博弈的線下決鬥。"
     },
@@ -554,7 +554,7 @@ window.animeData = {
       id: "pilgrimage_01",
       category: "pilgrimage",
       title: "【聖地巡禮 L1】在地同好地標打卡",
-      description: "拜訪過當地的 ACG 聖地（如台北西門町萬年大樓、安利美特、台北車站地下街、或各地女僕咖啡廳）。",
+      description: "拜訪過當地的 ACG 聖地（如安利美特、地下街、女僕咖啡廳等，或您所在地區 the 同性質 ACG 特色地標）。",
       difficulty: "★☆☆☆☆",
       tips: "巡禮的第一步！先在自己附近的城市裡探訪聚集動漫文化的特色地標。"
     },
@@ -594,7 +594,7 @@ window.animeData = {
       id: "pilgrimage_06",
       category: "pilgrimage",
       title: "【聖地巡禮 L2】江之島青春之旅 (Enoshima)",
-      description: "拜訪過江之島，朝聖《孤獨搖滾！》、《青春豬頭少年》或《TARI TARI》等作品的島上名場景。",
+      description: "拜訪過江之島，朝聖《孤獨搖滾！》、《青春豬頭少年》等，或以江之島為背景的其他同性質動漫名場景。",
       difficulty: "★★★☆☆",
       tips: "踩著青春的步伐，參觀江之島神社、吃章魚仙貝，感受湘南海岸特有的微風與海景。"
     },
@@ -682,7 +682,7 @@ window.animeData = {
       id: "pilgrimage_17",
       category: "pilgrimage",
       title: "【聖地巡禮 L5】動漫主題樂園制霸",
-      description: "造訪過日本環球影城（動漫聯名區）、吉卜力公園、或淡路島二次元之森等大型主題園區。",
+      description: "造訪過環球影城動漫區、吉卜力公園、或二次元之森等，或其他同性質之動漫主題樂園/園區。",
       difficulty: "★★★★★",
       tips: "在三次元被實體化還原的巨型二次元場景中遊玩，沉浸感滿分。"
     },
@@ -716,7 +716,7 @@ window.animeData = {
       id: "fandom_01",
       category: "fandom_creation",
       title: "同人誌即賣會參戰 (Con Attendee)",
-      description: "親自參加過 Fancy Frontier (FF) 或 CWT 或台北國際動漫節/漫畫博覽會等大型展覽場次。",
+      description: "親自參加過 Fancy Frontier (FF)、CWT、或動漫節等，或其他同性質之大型動漫與同人即賣會展覽。",
       difficulty: "★☆☆☆☆",
       tips: "體驗萬頭攢動的熱烈同好氛圍，在會場排隊、逛攤位，感受御宅的狂歡。"
     },
@@ -748,7 +748,7 @@ window.animeData = {
       id: "fandom_05",
       category: "fandom_creation",
       title: "宅歌KTV怒唱一波 (Otaku Karaoke)",
-      description: "與同好去日文 KTV（如青春譜、艾利森）大唱動漫歌曲，狂點《殘酷天使的行動綱領》或《God knows...》。",
+      description: "與同好去日文 KTV（如青春譜、艾利森）大唱動漫歌曲，狂點《殘酷天使的行動綱領》、《God knows...》等，或其他同性質之經典動漫神曲。",
       difficulty: "★★☆☆☆",
       tips: "不需要顧慮外人的眼光，用日文原唱大聲吼出你最熱愛的動漫主題曲！"
     },
@@ -828,7 +828,7 @@ window.animeData = {
       id: "fandom_15",
       category: "fandom_creation",
       title: "宅舞/Cosplay舞團 (Dance Cover)",
-      description: "參與過動漫歌曲（如《極樂淨土》、《Idol》、《BBBB-Burn-Dem-All》）的宅舞排練、錄影或舞台表演。",
+      description: "參與過動漫歌曲（如《極樂淨土》、《Idol》等，或其他同性質之動漫宅舞歌曲）的宅舞排練、錄影或舞台表演。",
       difficulty: "★★★★☆",
       tips: "精確的動作、元氣的笑容，和隊友們一起在鏡頭前或舞台上跳出充滿活力的二次元舞蹈。"
     },
@@ -942,7 +942,7 @@ window.animeData = {
       id: "hardcore_14",
       category: "hardcore_challenge",
       title: "遊戲動漫連動制霸 (Game Mastery)",
-      description: "玩過某款動漫改編的家用主機遊戲（如《火影終極風暴》）或手遊（如《FGO》），並達成白金成就或全角色全卡池收集。",
+      description: "玩過某款動漫改編的家用主機遊戲或手遊（如《火影終極風暴》、《FGO》等，或同性質之動漫改編遊戲），並達成白金成就或全角色全卡池收集。",
       difficulty: "★★★★☆",
       tips: "在虛擬遊戲世界中也登峰造極，證實你對該 IP 無人能及的熱愛與爆肝程度。"
     },
@@ -950,7 +950,7 @@ window.animeData = {
       id: "hardcore_15",
       category: "hardcore_challenge",
       title: "經典台詞倒背如流 (Quote Master)",
-      description: "能一字不差地背誦出某部作品的經典超長台詞（如吉良吉影的自我介紹、人類補完宣告、或是夜神月的獨白）。",
+      description: "能一字不差地背誦出某部作品的經典超長台詞（如吉良吉影的自我介紹、夜神月的獨白等，或其他同性質之超長經典台詞）。",
       difficulty: "★★★☆☆",
       tips: "「我的名字叫吉良吉影，33歲，住在杜王町東北部的別墅區...」一開口就是老二次元了。"
     },
@@ -958,7 +958,7 @@ window.animeData = {
       id: "hardcore_16",
       category: "hardcore_challenge",
       title: "十年信仰不滅 (10-Year Fan)",
-      description: "熱愛並持續關注同一個動漫 IP 超過 10 年以上（如《Fate》、《鋼彈》、《新世紀福音戰士》、《精靈寶可夢》）。",
+      description: "熱愛並持續關注同一個動漫 IP 超過 10 年以上（如《Fate》、《鋼彈》、《精靈寶可夢》等，或同性質之經典動漫 IP 系列）。",
       difficulty: "★★★☆☆",
       tips: "時間是信仰最好的見證者。十年間看著這部作品推出續作、重啟，初心依舊未改。"
     },
@@ -993,6 +993,14 @@ window.animeData = {
       description: "擁有一整間完全擺滿模型、原畫、遊戲、BD 與限量周邊的獨立「究極御宅閣樓/地下室」，且誓言此生熱愛二次元。",
       difficulty: "★★★★★",
       tips: "恭喜你！你已經達到了御宅族的最高境界，二次元就是你此生無悔的歸宿與淨土。"
+    },
+    {
+      id: "hardcore_21",
+      category: "hardcore_challenge",
+      title: "跨越次元的牽手 (Soulmate Otaku)",
+      description: "與同樣熱愛動漫的對象成為伴侶（戀愛或步入婚姻），共同宅在家中追番、打造屬於你們的二次元家庭。",
+      difficulty: "★★★★★",
+      tips: "「最浪漫的事，就是和懂你梗的人一起慢慢變老。」恭喜你打破次元之壁，解鎖終極現充（隱藏版）成就！"
     }
   ],
 
