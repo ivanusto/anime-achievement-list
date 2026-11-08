@@ -10,3 +10,6 @@ desktop.ini
 # Local configuration
 .env
 local.json
+
+# Claude Code per-user permissions (may contain secrets)
+.claude/settings.local.json
